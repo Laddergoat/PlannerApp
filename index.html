@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Planner</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+    <!--Wrapper for all content -->
+    <div id = "wrapper">
+        <!--Page Header -->
+        <header>
+            <h1>Study Planner</h1>
+            <h6>Delfinerne sprang og kaptajnen sang, "Du kommer nok hjem engang".</h6>
+            <div style="float:right; font-size: 12px; margin-right: 15px; margin-top: -140px; text-align: right;">
+                <a href="#" onclick="changeCSS('css/main.css', 0);" style="color: black;">Web Friendly</a>
+                <br />
+                <a href="#" onclick="changeCSS('css/print.css', 0); window.print();" style="color: black;">Print This Planner</A>
+            </div>
+            <!-- END OF ADDED BY THE BIG GREEK -->
+
+        </header>
+
+        <!--Main Content Section-->
+        <section id = "content">
+
+            <!--Date container-->
+            <div id = "date">
+                <input id="plandate" type="text" readonly="readonly" onchange="clearPage()"/>
+            </div>
+
+            <div class='plantitle header'><span class="tableheader">Title</span></div>
+            <div class='plannote header'><span class="tableheader">Note</span></div>
+            <div class='plantime header'><span class="tableheader">Time</span></div>
+            <div class='planduration header'><span class="tableheader">Duration</span></div>
+            <div class='plancategory header'><span class="tableheader">Category</span></div>
+
+            <!--Unordered list for storing dynamic input from user -->
+            <ul id="sortable">
+
+            </ul>
+
+            <!--User Input Section -->
+            <ul id="input">
+                <li>
+                    <form id="planform">
+                        <div class="plantitle">
+                            <input class="planInput" id="plantitle" placeholder="Title" type="text" name="title" maxlength="25" size="15"/>
+                        </div>
+                        <div class="plannote">
+                            <input class="planInput" id="plannote" placeholder="Input a short description" type="text" name="note" maxlength="40" size="15"/>
+                        </div>
+                        <div class="plantime">
+                            <input class="planInput" id="plantime" placeholder="HH:MM" type="text" name="time" maxlength="5" size="15"/>
+                        </div>
+                        <div class="planduration">
+                            <input class="planInput" id="planduration" placeholder="Duration" type="text" name="duration" maxlength="5" size="4"/>
+                        </div>
+                        <div class="plancategory">
+                            <select class="planInput" id="plancategory">
+                                <option value = "E" selected="selected">E</option>
+                                <option value = "R">R</option>
+                                <option value = "S">S</option>
+                            </select>
+                        </div>
+                        <button type="button"  onclick="addPlan()">Submit</button>
+                    </form>
+                </li>
+            </ul>
+        </section>
+
+        <!--Container for progress bar canvas -->
+        <section id="progress">
+            <canvas id="canvas" width="760px" height="50px"></canvas>
+        </section>
+
+        <!--Key for each for colors and letters -->
+        <div id="key">
+            <div class = "key">
+                <div id = "e_button" class="button">E</div>
+                <p class="key_text">Essential</p>
+            </div>
+            <div class = "key">
+                <div id = "s_button" class="button">S</div>
+                <p class="key_text">Study</p>
+            </div>
+            <div class = "key">
+                <div id = "r_button" class="button">R</div>
+                <p class="key_text">Recreational</p>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer>
+            <span id="copy"><a href="http://www.surprisedsquid.com"><img src="images/darkgrey.png" /></a></span>
+            <span id="creators">
+                Created by
+                <br />
+                B00253893 & B00256745
+            </span>
+        </footer>
+
+    </div>
+
+</body>
+    <script src="js/populate.js"></script>
+    <script src="js/percentageBar.js"></script>
+    <script src="js/validate.js"></script>
+    <script src="js/planType.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/print.js"></script>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/date.js"></script>
+</html>

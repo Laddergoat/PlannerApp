@@ -1,0 +1,61 @@
+/**
+ * Created by andy on 28/11/13.
+ */
+var sortable = document.getElementById("sortable");
+var plans = [];
+var title = document.getElementById("plantitle").value;
+var pTitle, pNote, pTime, pDate, pDuration, pCategory;
+
+function Plan(title, note, date, time, duration, category){
+    this.title = title;
+    this.note = note;
+    this.datetime = new Date(date + " " + time);
+    this.duration = duration;
+    this.category = category;
+};
+
+function createPlan(title, note, date, time, duration, category){
+    return new Plan(title, note, date, time, duration, category);
+}
+
+window.onload = function(){
+    pTitle = document.getElementById("plantitle");
+    pNote = document.getElementById("plannote");
+    pTime = document.getElementById("plantime");
+    pDuration = document.getElementById("planduration");
+    pCategory = document.getElementById("plancategory");
+
+}
+
+Plan.prototype.displayTime = function(){
+    return this.datetime.getHours() + ":" + this.datetime.getMinutes();
+};
+
+Plan.prototype.listPlan = function(){
+    return "<li><div class = 'plan'><div class = 'plantitle'>" +
+        this.title + "</div><div class = 'plannote'>" +
+        this.note + "</div><div class = 'plantime'>" +
+        this.displayTime() + "</div><div class = 'planduration'>" +
+        this.duration + "</div><div class = 'plancategory'>" +
+        this.category + "</div><div class = '" + this.category + "'></div></div></li>"
+};
+
+function addPlan(){
+
+    var note = pNote.value;
+    var date = "test";
+    var time = "test";
+    var duration = pDuration.value;
+    var category = pCategory.value;
+
+    //var p = createPlan(title, note, date, time, duration, category);
+    document.write(title);
+}
+
+function clearPlan(){
+    pTitle.value = "";
+    pNote.value = "";
+    pTime.value = "";
+    pDuration.value = "";
+    pCategory.value = "";
+}
